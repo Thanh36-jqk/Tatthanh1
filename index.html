@@ -249,7 +249,26 @@
         <button class="arrow left" onclick="prevSlide()">&#10094;</button>
         <button class="arrow right" onclick="nextSlide()">&#10095;</button>
       </div>
+      <script>
+        const slider = document.getElementById("slider");
+        const slides = slider.querySelectorAll("img");
+        let currentIndex = 0;
+        const totalSlides = slides.length;
       
+        function updateSlide() {
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+      
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateSlide();
+        }
+      
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          updateSlide();
+        }
+      </script>
       
     </div>
     <div class="footer"></div>
