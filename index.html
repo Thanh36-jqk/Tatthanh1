@@ -6,11 +6,8 @@
     <title>Apple</title>
     <link rel="stylesheet" href="z.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
 </head>
 <body>
-    <div class="list"></div>
     <div class="container">
      <header>
         <nav class="menu">
@@ -18,7 +15,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </div>
-           
+
             <a href="#">Cửa Hàng</a>
             <a href="#">Mac</a>
             <a href="#">iPhone</a>
@@ -35,157 +32,595 @@
         </nav>
         </header>
         <div class="hero">
-  <img src="images/apple.webp" alt="iPhone 16 Pro Max" class="background-img">
-
+            <img src="images/apple.webp" alt="iPhone 16 Pro Max" class="background-img">
             <div class="hero-text">
                 <h1>iPhone 16 Pro Max</h1>
                 <p>Hiệu năng đỉnh cao – Đẳng cấp vượt trội</p>
             </div>
         </div>
+        <div class="slider-wrapper">
+          <div class="slider" id="slider">
+            <img src="images/macbook-air-og-202503.jpg" alt="MacBook Pro">
+            <img src="images/macbook_air_13_m2_starlight_1_24bf8f9188.png" alt="MacBook Air 1">
+            <img src="images/apple-macbook-pro-14-16-inch-jpeg-b2dc7a7d-d44c-4d26-ad51-a97756e6e9a7.webp" alt="MacBook Air 2">
+          </div>
 
+          <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+          <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <script>  
+          const slider = document.getElementById("slider");
+          if (slider) { 
+            const slides = slider.querySelectorAll("img");
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+              if (slider) slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            function nextSlide() {
+              currentIndex = (currentIndex + 1) % totalSlides;
+              updateSlide();
+            }
+
+            function prevSlide() {
+              currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+              updateSlide();
+            }
+          } else {
+              console.warn("Slider element not found");
+          }
+        </script>
         <div class="item">
             <h2>Sản phẩm bán chạy</h2>
             <ul class="product-list">
+              <li>
+                <div class="product-item"
+                     onclick="showProductDetails(this)"
+                     data-name="Airpods Pro 2"
+                     data-price="5.000.000$"
+                     data-desc="Tai nghe không dây chống ồn chủ động, H2 chip"
+                     data-spec="H2 chip, ANC, Bluetooth 5.3, sạc MagSafe"
+                     data-img="images/airpod2.jpg">
+                  <div class="product-image">
+                    <img src="images/airpod2.jpg" alt="Airpods Pro 2"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">HeadPhone</a>
+                    <a href="#" class="product-name">Airpods Pro 2</a>
+                    <div class="product-price">5.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Airpods Pro 2','HeadPhone','5.000.000$','images/airpod2.jpg')">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="product-item"
+                     onclick="showProductDetails(this)"
+                     data-name="Iphone 7 Plus"
+                     data-price="22.000.000$"
+                     data-desc="iPhone 7 Plus với camera kép, hiệu năng mượt"
+                     data-spec="Màn hình 5.5in, RAM 3GB, A10 Fusion, Pin 2900mAh"
+                     data-img="images/iphone7plus.jpeg"> 
+                  <div class="product-image">
+                    <img src="images/iphone7plus.jpeg" alt="Iphone 7 Plus"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 7 Plus</a>
+                    <div class="product-price">22.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 7 Plus','Phone','22.000.000$',
+                        'images/iphone7plus.jpeg'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item"
+                     onclick="showProductDetails(this)"
+                     data-name="Iphone 8 Plus"
+                     data-price="5.000.000$"
+                     data-desc="Thiết kế kính, sạc không dây, hiệu năng ổn định"
+                     data-spec="Màn hình 5.5in Retina HD, A11 Bionic, RAM 3GB, Pin 2691mAh"
+                     data-img="images/iphone8plus.webp"> 
+                  <div class="product-image">
+                    <img src="images/iphone8plus.webp" alt="Iphone 8 Plus"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 8 Plus</a>
+                    <div class="product-price">5.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart('Iphone 8 Plus','Phone','5.000.000$','images/iphone8plus.webp')">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="product-item"
+                     onclick="showProductDetails(this)"
+                     data-name="Iphone 11"
+                     data-price="66.000.000$"
+                     data-desc="iPhone 11 với camera kép, pin trâu, màu sắc trẻ trung"
+                     data-spec="Màn hình 6.1in LCD, A13 Bionic, RAM 4GB, Pin 3110mAh"
+                     data-img="images/iphone11.jpg"> 
+                  <div class="product-image">
+                    <img src="images/iphone11.jpg" alt="Iphone 11">
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 11</a>
+                    <div class="product-price">66.000.000$</div>
+  
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 11','Phone','66.000.000$',
+                        'images/iphone11.jpg'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item"
+                     onclick="showProductDetails(this)"
+                     data-name="Iphone 11 Pro"
+                     data-price="77.000.000$"
+                     data-desc="Màn hình OLED, hiệu năng mạnh, camera ba ống kính"
+                     data-spec="Màn hình 5.8in OLED, A13 Bionic, RAM 4GB, 3 camera, Pin 3046mAh"
+                     data-img="images/iphone11pro.jpg"> 
+                  <div class="product-image">
+                    <img src="images/iphone11pro.jpg" alt="Iphone 11 Pro"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 11 Pro</a>
+                    <div class="product-price">77.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 11 Pro','Phone','77.000.000$',
+                        'images/iphone11pro.jpg'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
                 <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/airpodspro2.png" alt="Airpods Pro 2">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">HeadPhone</a>
-                            <a href="#" class="product-name">Airpods Pro 2</a>
-                            <div class="product-price">5.000.000$</div>
-                            <button onclick='addToCart("Airpods Pro 2", "HeadPhone", "5.000.000$", "C:\\Users\\DELL\\Downloads\\image\\airpod2.jpg")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
+                <div class="product-item" onclick="showProductDetails(this)"
+                     data-name="Iphone 12"
+                     data-price="20.000.000$"
+                     data-desc="iPhone 12 với màn hình 6.1 inch, chip A14 Bionic"
+                     data-spec="Màn hình: 6.1 inch OLED, Chip: A14 Bionic, RAM: 4GB, Pin: 2815mAh"
+                     data-img="images/iphone-12-tim-1-600x600.jpg">
+                  <div class="product-image">
+                    <img src="images/iphone-12-tim-1-600x600.jpg" alt="Iphone 12">
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 12</a>
+                    <div class="product-price">20.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 12','Phone','20.000.000$',
+                        'images/iphone-12-tim-1-600x600.jpg' )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item" onclick="showProductDetails(this)"
+                     data-name="Iphone 12 Pro"
+                     data-price="25.000.000$"
+                     data-desc="iPhone 12 Pro với camera Pro, LiDAR"
+                     data-spec="Màn hình: 6.1 inch OLED, Chip: A14 Bionic, RAM: 6GB, Camera: 3 ống kính, Pin: 2815mAh"
+                     data-img="images/(600x600)_crop_iphone-12-pro-xtmobile.webp">
+                  <div class="product-image">
+                    <img src="images/(600x600)_crop_iphone-12-pro-xtmobile.webp" alt="Iphone 12 Pro">
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 12 Pro</a>
+                    <div class="product-price">25.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 12 Pro','Phone','25.000.000$',
+                        'images/(600x600)_crop_iphone-12-pro-xtmobile.webp')">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item" onclick="showProductDetails(this)"
+                     data-name="Iphone 14 Pro Max"
+                     data-price="26.500.000$"
+                     data-desc="Dynamic Island, chip A16 Bionic"
+                     data-spec="Màn hình: 6.7 inch OLED, Chip: A16 Bionic, RAM: 6GB, Camera: 48MP, Pin: 4323mAh"
+                     data-img="images/iphone14promax.webp"> 
+                  <div class="product-image">
+                    <img src="images/iphone14promax.webp" alt="Iphone 14 Pro Max"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 14 Pro Max</a>
+                    <div class="product-price">26.500.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 14 Pro Max','Phone','26.500.000$',
+                        'images/iphone14promax.webp'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item" onclick="showProductDetails(this)"
+                     data-name="Iphone 15 Pro Max"
+                     data-price="27.500.000$"
+                     data-desc="Khung titan, chip A17 Pro"
+                     data-spec="Màn hình: 6.7 inch OLED, Chip: A17 Pro, RAM: 8GB, Camera: 48MP, Pin: 4422mAh"
+                     data-img="images/iphone15promax.webp"> 
+                  <div class="product-image">
+                    <img src="images/iphone15promax.webp" alt="Iphone 15 Pro Max">
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 15 Pro Max</a>
+                    <div class="product-price">27.500.000$</div>
+    
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 15 Pro Max','Phone','27.500.000$',
+                        'images/iphone15promax.webp'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="product-item" onclick="showProductDetails(this)"
+                     data-name="Iphone 16 Pro Max"
+                     data-price="31.000.000$"
+                     data-desc="Màn hình lớn hơn, chip A18 Pro"
+                     data-spec="Màn hình: 6.9 inch OLED, Chip: A18 Pro, RAM: 8GB, Camera: 48MP, Pin: 4700mAh"
+                     data-img="images/iphone16promax.jpg">
+                  <div class="product-image">
+                    <img src="images/iphone16promax.jpg" alt="Iphone 16 Pro Max"> 
+                  </div>
+                  <div class="product-info">
+                    <a href="#" class="product-cat">Phone</a>
+                    <a href="#" class="product-name">Iphone 16 Pro Max</a>
+                    <div class="product-price">31.000.000$</div>
+                    <button onclick="event.stopPropagation(); addToCart(
+                        'Iphone 16 Pro Max','Phone','31.000.000$',
+                        'images/iphone16promax.jpg'
+                      )">Thêm vào giỏ</button>
+                  </div>
+                </div>
+              </li>
                 <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/iphone7plus.png" alt="Iphone 7 Plus">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 7 Plus</a>
-                            <div class="product-price">22.000.000$</div>
-                            <button onclick='addToCart("Iphone 7 Plus", "Phone", "22.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone7plus.jpeg")'>Thêm vào giỏ</button>
-                        </div>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="MacBook Air 15 M3"
+                        data-price="32.000.000$"
+                        data-desc="Màn hình lớn 15 inch, chip M3 mạnh mẽ, thiết kế mỏng nhẹ"
+                        data-spec="M3 8-core CPU, 10-core GPU, 8GB RAM (base), 256GB SSD (base), Màn hình 15.3\", Wi-Fi 6E"
+                        data-img="images\mba15-midnight-select-202306.jpg">
+                     <div class="product-image">
+                       <img src="images\mba15-midnight-select-202306.jpg" alt="MacBook Air 15 M3">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Laptop</a>
+                       <a href="#" class="product-name">MacBook Air 15" M3</a>
+                       <div class="product-price">32.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('MacBook Air 15 M3','Laptop','32.000.000$','images/macbook_air_15_m3.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iMac 24 M3"
+                        data-price="33.000.000$"
+                        data-desc="Máy tính All-in-One tuyệt đẹp, chip M3, màn hình Retina 4.5K"
+                        data-spec="M3 8-core CPU, 8/10-core GPU, 8GB RAM (base), 256GB SSD (base), Màn hình 23.5\" 4.5K Retina"
+                        data-img="images\imac24.jpg">
+                     <div class="product-image">
+                       <img src="images\imac24.jpg" alt="iMac 24 M3">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Desktop</a>
+                       <a href="#" class="product-name">iMac 24" M3</a>
+                       <div class="product-price">33.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iMac 24 M3','Desktop','33.000.000$','images/iMac.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                  <li>
+                    <div class="product-item"
+                         onclick="showProductDetails(this)"
+                         data-name="Mac mini M2"
+                         data-price="15.000.000$"
+                         data-desc="Desktop nhỏ gọn, hiệu năng ấn tượng với chip M2"
+                         data-spec="M2 8-core CPU, 10-core GPU, 8GB RAM (base), 256GB SSD (base), Wi-Fi 6E, Thunderbolt 4"
+                         data-img="images\Mac mini M2.jpg">
+                      <div class="product-image">
+                        <img src="images\Mac mini M2.jpg" alt="Mac mini M2">
+                      </div>
+                      <div class="product-info">
+                        <a href="#" class="product-cat">Desktop</a>
+                        <a href="#" class="product-name">Mac mini M2</a>
+                        <div class="product-price">15.000.000$</div>
+                        <button onclick="event.stopPropagation(); addToCart('Mac mini M2','Desktop','15.000.000$','images/mac mini.jpg')">Thêm vào giỏ</button>
+                      </div>
                     </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                           <img src="images/iphone8plus.png" alt="Iphone 8 Plus">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 8 Plus</a>
-                            <div class="product-price">5.000.000$</div>
-                            <button onclick='addToCart("Iphone 8 Plus", "Phone", "5.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone8plus.webp")'>Thêm vào giỏ</button>
-                        </div>
+                  </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iPhone SE (3rd gen)"
+                        data-price="10.000.000$"
+                        data-desc="Hiệu năng mạnh mẽ trong thiết kế nhỏ gọn, chip A15 Bionic"
+                        data-spec="Màn hình 4.7\" Retina HD, A15 Bionic, RAM 4GB, Camera 12MP, Touch ID, 5G"
+                        data-img="images\iPhone SE (3rd gen).webp">
+                     <div class="product-image">
+                       <img src="images\iPhone SE (3rd gen).webp" alt="iPhone SE 3rd gen">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Phone</a>
+                       <a href="#" class="product-name">iPhone SE (3rd gen)</a>
+                       <div class="product-price">10.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iPhone SE (3rd gen)','Phone','10.000.000$','images/iphone se.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iPhone 13"
+                        data-price="15.000.000$"
+                        data-desc="Chip A15 Bionic mạnh mẽ, camera kép cải tiến, thời lượng pin tốt"
+                        data-spec="Màn hình 6.1\" Super Retina XDR, A15 Bionic, RAM 4GB, Camera kép 12MP, Pin 3240mAh"
+                        data-img="images\iPhone 13.webp">
+                     <div class="product-image">
+                       <img src="images\iPhone 13.webp" alt="iPhone 13">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Phone</a>
+                       <a href="#" class="product-name">iPhone 13</a>
+                       <div class="product-price">15.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iPhone 13','Phone','15.000.000$','images/iphone 13.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iPhone 14"
+                        data-price="17.000.000$"
+                        data-desc="Phát hiện va chạm, camera nâng cấp, chip A15 Bionic"
+                        data-spec="Màn hình 6.1\" Super Retina XDR, A15 Bionic (5-core GPU), RAM 6GB, Camera kép 12MP, Crash Detection"
+                        data-img="images\iPhone 14.webp">
+                     <div class="product-image">
+                       <img src="images\iPhone 14.webp" alt="iPhone 14">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Phone</a>
+                       <a href="#" class="product-name">iPhone 14</a>
+                       <div class="product-price">17.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iPhone 14','Phone','17.000.000$','images/iphone14.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                  <li>
+                    <div class="product-item"
+                         onclick="showProductDetails(this)"
+                         data-name="iPhone 15 Plus"
+                         data-price="23.000.000$"
+                         data-desc="Màn hình lớn 6.7 inch, Dynamic Island, camera 48MP, USB-C"
+                         data-spec="Màn hình 6.7\" Super Retina XDR, A16 Bionic, RAM 6GB, Camera kép 48MP, Pin lớn, USB-C"
+                         data-img="images\iPhone 15 Plus.jpg">
+                      <div class="product-image">
+                        <img src="images\iPhone 15 Plus.jpg" alt="iPhone 15 Plus">
+                      </div>
+                      <div class="product-info">
+                        <a href="#" class="product-cat">Phone</a>
+                        <a href="#" class="product-name">iPhone 15 Plus</a>
+                        <div class="product-price">23.000.000$</div>
+                        <button onclick="event.stopPropagation(); addToCart('iPhone 15 Plus','Phone','23.000.000$','images/iphone15plus.webp')">Thêm vào giỏ</button>
+                      </div>
                     </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/iphone11.png" alt="Iphone 11">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 11</a>
-                            <div class="product-price">66.000.000$</div>
-                            <button onclick='addToCart("Iphone 11", "Phone", "66.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone11.jpg")'>Thêm vào giỏ</button>
-                        </div>
+                  </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="AirPods (3rd gen)"
+                        data-price="4.000.000$"
+                        data-desc="Thiết kế mới, Âm thanh không gian, Adaptive EQ"
+                        data-spec="H1 chip, Spatial Audio, Adaptive EQ, IPX4, Thời lượng pin 6 giờ"
+                        data-img="images\AirPods (3rd gen).jpg">
+                     <div class="product-image">
+                       <img src="images\AirPods (3rd gen).jpg" alt="AirPods 3rd gen">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">HeadPhone</a>
+                       <a href="#" class="product-name">AirPods (3rd gen)</a>
+                       <div class="product-price">4.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('AirPods (3rd gen)','HeadPhone','4.000.000$','images/airpod3.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="AirPods Max"
+                        data-price="13.000.000$"
+                        data-desc="Tai nghe over-ear cao cấp, chống ồn chủ động, âm thanh Hi-Fi"
+                        data-spec="H1 chip (mỗi bên), ANC, Transparency Mode, Spatial Audio, Digital Crown"
+                        data-img="images\airpodmax.png">
+                     <div class="product-image">
+                       <img src="images\airpodmax.png" alt="AirPods Max">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">HeadPhone</a>
+                       <a href="#" class="product-name">AirPods Max</a>
+                       <div class="product-price">13.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('AirPods Max','HeadPhone','13.000.000$','images/airpodmax.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="Apple Watch Series 9"
+                        data-price="10.000.000$"
+                        data-desc="Chip S9 mạnh mẽ, Double Tap gesture, màn hình sáng hơn"
+                        data-spec="S9 SiP, Double Tap, Màn hình Always-On sáng hơn, ECG, Blood Oxygen, GPS"
+                        data-img="images\Apple Watch Series 9.webp">
+                     <div class="product-image">
+                       <img src="images\Apple Watch Series 9.webp" alt="Apple Watch Series 9">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Watch</a>
+                       <a href="#" class="product-name">Apple Watch Series 9</a>
+                       <div class="product-price">10.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('Apple Watch Series 9','Watch','10.000.000$','images/apple watch 9.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="Apple Watch Ultra 2"
+                        data-price="20.000.000$"
+                        data-desc="Bền bỉ nhất, pin lâu nhất, tính năng chuyên nghiệp cho thể thao"
+                        data-spec="S9 SiP, Double Tap, Vỏ Titan, GPS tần số kép, Chống nước 100m, Dive computer"
+                        data-img="images\Apple Watch Ultra 2.jpg">
+                     <div class="product-image">
+                       <img src="images\Apple Watch Ultra 2.jpg" alt="Apple Watch Ultra 2">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">Watch</a>
+                       <a href="#" class="product-name">Apple Watch Ultra 2</a>
+                       <div class="product-price">20.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('Apple Watch Ultra 2','Watch','20.000.000$','images/apple watch ultra.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                  <li>
+                    <div class="product-item"
+                         onclick="showProductDetails(this)"
+                         data-name="Apple Watch SE (2nd gen)"
+                         data-price="6.000.000$"
+                         data-desc="Giá trị tuyệt vời, tính năng thiết yếu, chip S8"
+                         data-spec="S8 SiP, Crash Detection, Theo dõi nhịp tim, Chống nước 50m, Family Setup"
+                         data-img="images\AppleWatchSE.jpg">
+                      <div class="product-image">
+                        <img src="images\AppleWatchSE.jpg" alt="Apple Watch SE 2nd gen">
+                      </div>
+                      <div class="product-info">
+                        <a href="#" class="product-cat">Watch</a>
+                        <a href="#" class="product-name">Apple Watch SE (2nd gen)</a>
+                        <div class="product-price">6.000.000$</div>
+                        <button onclick="event.stopPropagation(); addToCart('Apple Watch SE (2nd gen)','Watch','6.000.000$','images/apple watch se.webp')">Thêm vào giỏ</button>
+                      </div>
                     </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphone11pro.jpg" alt="Iphone 11 Pro">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 11 Pro</a>
-                            <div class="product-price">77.000.000$</div>
-                            <button onclick='addToCart("Iphone 11 Pro", "Phone", "77.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone11pro.jpg")'>Thêm vào giỏ</button>
-                        </div>
+                  </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iPad Air (M2)"
+                        data-price="15.000.000$"
+                        data-desc="Chip M2 mạnh mẽ, thiết kế mỏng nhẹ, hỗ trợ Apple Pencil Pro"
+                        data-spec="M2 chip, Màn hình Liquid Retina 11 13\", Camera trước ngang, Touch ID, USB-C"
+                        data-img="images\ipadairm2.webp">
+                     <div class="product-image">
+                       <img src="images\ipadairm2.webp" alt="iPad Air M2">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">iPad</a>
+                       <a href="#" class="product-name">iPad Air (M2)</a>
+                       <div class="product-price">15.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iPad Air (M2)','iPad','15.000.000$','images/ipad air.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="iPad Pro (M4)"
+                        data-price="25.000.000$"
+                        data-desc="Chip M4 đột phá, màn hình Tandem OLED siêu mỏng, hiệu năng đỉnh cao"
+                        data-spec="M4 chip, Màn hình Ultra Retina XDR (Tandem OLED) 11\13\", Siêu mỏng, Face ID, USB-C (Thunderbolt)"
+                        data-img="images\ipadprom4.jpg">
+                     <div class="product-image">
+                       <img src="images\ipadprom4.jpg" alt="iPad Pro M4">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">iPad</a>
+                       <a href="#" class="product-name">iPad Pro (M4)</a>
+                       <div class="product-price">25.000.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('iPad Pro (M4)','iPad','25.000.000$','images/ipad pro.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="product-item"
+                        onclick="showProductDetails(this)"
+                        data-name="Apple TV 4K (3rd gen)"
+                        data-price="3.500.000$"
+                        data-desc="Giải trí 4K HDR đỉnh cao, chip A15 Bionic, Siri Remote mới"
+                        data-spec="A15 Bionic, 4K Dolby Vision & HDR10+, tvOS, Wi-Fi + Ethernet (model cao cấp), Siri Remote (USB-C)"
+                        data-img="images\appletv4k.jpg">
+                     <div class="product-image">
+                       <img src="images\appletv4k.jpg" alt="Apple TV 4K 3rd gen">
+                     </div>
+                     <div class="product-info">
+                       <a href="#" class="product-cat">TV & Nhà</a>
+                       <a href="#" class="product-name">Apple TV 4K (3rd gen)</a>
+                       <div class="product-price">3.500.000$</div>
+                       <button onclick="event.stopPropagation(); addToCart('Apple TV 4K (3rd gen)','TV & Nhà','3.500.000$','images/apple tv.webp')">Thêm vào giỏ</button>
+                     </div>
+                   </div>
+                 </li>
+                  <li>
+                    <div class="product-item"
+                         onclick="showProductDetails(this)"
+                         data-name="HomePod (2nd gen)"
+                         data-price="7.500.000$"
+                         data-desc="Âm thanh Hi-Fi sống động, tích hợp nhà thông minh, chip S7"
+                         data-spec="S7 chip, Âm thanh không gian, Cảm biến nhiệt độ/độ ẩm, Thread, Matter, Siri"
+                         data-img="images\homepod2.jpg">
+                      <div class="product-image">
+                        <img src="images\homepod2.jpg" alt="HomePod 2nd gen">
+                      </div>
+                      <div class="product-info">
+                        <a href="#" class="product-cat">TV & Nhà</a>
+                        <a href="#" class="product-name">HomePod (2nd gen)</a>
+                        <div class="product-price">7.500.000$</div>
+                        <button onclick="event.stopPropagation(); addToCart('HomePod (2nd gen)','TV & Nhà','7.500.000$','images/homepod.webp')">Thêm vào giỏ</button>
+                      </div>
                     </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphone11promax.jpg" alt="Iphone 11 ProMax">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 11 ProMax</a>
-                            <div class="product-price">110.000.000$</div>
-                            <button onclick='addToCart("Iphone 11 ProMax", "Phone", "110.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone11promax.jpg")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphone14promax.webp" alt="Iphone 14 ProMax">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 14 ProMax</a>
-                            <div class="product-price">26.500.000$</div>
-                            <button onclick='addToCart("Iphone 14 ProMax", "Phone", "26.500.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone14promax.webp")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphone15promax.webp" alt="Iphone 15 ProMax">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 15 ProMax</a>
-                            <div class="product-price">27.500.000$</div>
-                            <button onclick='addToCart("Iphone 15 ProMax", "Phone", "27.500.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone15promax.webp")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphone16promax.jpg" alt="Iphone 16 ProMax">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone 16 ProMax</a>
-                            <div class="product-price">31.000.000$</div>
-                            <button onclick='addToCart("Iphone 16 ProMax", "Phone", "31.000.000$", "C:\\Users\\DELL\\Downloads\\image\\iphone16promax.jpg")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="C:\Users\DELL\Downloads\image\iphonexsmax.jpg " alt="Iphone XsMax">
-                        </div>
-                        <div class="product-info">
-                            <a href="#" class="product-cat">Phone</a>
-                            <a href="#" class="product-name">Iphone XsMax</a>
-                            <div class="product-price">6.500.000$</div>
-                            <button onclick='addToCart("Iphone XsMax", "Phone", "6.500.000$", "C:\\Users\\DELL\\Downloads\\image\\iphonexsmax.jpg")'>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </li>
+                  </li>
+              </ul>
             </ul>
+
+            <div id="popup-container" class="popup-container">
+              <div id="popup">
+                <img id="modalImg" src="" alt="Product Image">
+                <h2 id="modalName"></h2>
+                <p id="modalDesc"></p>
+                <p id="modalPrice"></p>
+                <ul id="modalSpec"></ul>
+                <button onclick="closeModal()">Đóng</button>
+              </div>
+            </div>
+
             <div id="cart-popup" class="cart-popup">
                 <h3>Giỏ hàng của bạn</h3>
                 <ul id="cart-items"></ul>
                 <button onclick="closeCart()">Đóng</button>
             </div>
+
             <script>
                 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-               
+
+              
                 function addToCart(name, category, price, image) {
+         
                     const existing = cart.find(p => p.name === name);
                     if (existing) {
                         existing.qty += 1;
@@ -194,18 +629,21 @@
                     }
                     localStorage.setItem("cart", JSON.stringify(cart));
                     updateCartCount();
+                    alert(name + " đã được thêm vào giỏ!"); 
                 }
-               
+
                 function updateCartCount() {
                     const count = cart.reduce((sum, p) => sum + p.qty, 0);
-                    document.querySelector(".cart-count").textContent = count;
+                    const cartCountElement = document.querySelector(".cart-count");
+                    if(cartCountElement) cartCountElement.textContent = count;
                 }
-               
+
                 function openCart() {
                     const popup = document.getElementById("cart-popup");
                     const list = document.getElementById("cart-items");
+                    if(!popup || !list) return;
                     list.innerHTML = "";
-               
+
                     if (cart.length === 0) {
                         list.innerHTML = "<li>Không có sản phẩm nào.</li>";
                     } else {
@@ -214,65 +652,69 @@
                             li.innerHTML = `
                                 <strong>${item.name}</strong><br>
                                 Số lượng: ${item.qty}<br>
+                                Giá: ${item.price}<br>
                                 <button onclick="removeFromCart(${index})">Xoá</button>
                             `;
                             list.appendChild(li);
                         });
                     }
-               
+
                     popup.style.display = "block";
                 }
-               
+
                 function closeCart() {
-                    document.getElementById("cart-popup").style.display = "none";
+                    const popup = document.getElementById("cart-popup");
+                    if(popup) popup.style.display = "none";
                 }
-               
+
                 function removeFromCart(index) {
                     cart.splice(index, 1);
                     localStorage.setItem("cart", JSON.stringify(cart));
                     updateCartCount();
-                    openCart();
+                    openCart(); 
                 }
+
+                const cartContainer = document.querySelector(".cart-container");
+                if (cartContainer) cartContainer.addEventListener("click", openCart);
+
                
-                document.querySelector(".cart-container").addEventListener("click", openCart);
+                function showProductDetails(el) {
+                    const modalImg = document.getElementById("modalImg");
+                    const modalName = document.getElementById("modalName");
+                    const modalDesc = document.getElementById("modalDesc");
+                    const modalPrice = document.getElementById("modalPrice");
+                    const specList = document.getElementById("modalSpec");
+                    const popupContainer = document.getElementById("popup-container");
+                    if(!modalImg || !modalName || !modalDesc || !modalPrice || !specList || !popupContainer) {
+                        console.error("Missing modal elements");
+                        return;
+                    }
+
+                    modalName.textContent = el.dataset.name || '';
+                    modalDesc.textContent = el.dataset.desc || '';
+                    modalPrice.textContent = el.dataset.price || '';
+                    modalImg.src = el.dataset.img || ''; 
+
+                    specList.innerHTML = "";
+                    const specData = el.dataset.spec || '';
+                    specData.split(",")
+                      .forEach(s => {
+                        let li = document.createElement("li");
+                        li.textContent = s.trim();
+                        specList.appendChild(li);
+                      });
+
+                    popupContainer.classList.add("active");
+                }
+
+                function closeModal() {
+                    const popupContainer = document.getElementById("popup-container");
+                    if(popupContainer) popupContainer.classList.remove("active");
+                }
                 updateCartCount();
-                </script>
-                   
-    </div>
-    <div class="slider-wrapper">
-        <div class="slider" id="slider">
-          <img src="C:/Users/DELL/Downloads/image/apple-macbook-pro-14-16-inch-jpeg-b2dc7a7d-d44c-4d26-ad51-a97756e6e9a7.webp" alt="MacBook Pro">
-          <img src="C:/Users/DELL/Downloads/image/macbook_air_13_m2_starlight_1_24bf8f9188.png" alt="MacBook Air 1">
-          <img src="C:/Users/DELL/Downloads/image/mba13-skyblue-select-202503.jpg" alt="MacBook Air 2">
-        </div>
-      
-        <!-- Mũi tên điều hướng -->
-        <button class="arrow left" onclick="prevSlide()">&#10094;</button>
-        <button class="arrow right" onclick="nextSlide()">&#10095;</button>
-      </div>
-      <script>
-        const slider = document.getElementById("slider");
-        const slides = slider.querySelectorAll("img");
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-      
-        function updateSlide() {
-          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-      
-        function nextSlide() {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          updateSlide();
-        }
-      
-        function prevSlide() {
-          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-          updateSlide();
-        }
-      </script>
-      
+            </script>
+
     </div>
     <div class="footer"></div>
 </body>
 </html>
-    
